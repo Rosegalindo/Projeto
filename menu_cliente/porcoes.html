@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porções</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+</head>
+<body class="pagina-cardapio">
+
+<h1 class="titulo-pagina">QUIOSQUE DO MAZINHO</h1>
+<h2 class="titulo-pagina">Porções</h2>
+
+<!-- ITEM 1 -->
+<div class="item-card">
+    <div class="item-img">
+        <img src="img/lula1.jpg" alt="Lula">
+    </div>
+
+    <div class="item-info">
+        <h3>LULA</h3>
+        <span class="preco">R$ XXX</span>
+        <p>Porção de lula crocante, acompanha limão e molho especial.</p>
+
+        <div class="item-acoes">
+            <button class="btn-icon">
+                <i class='bx bxs-heart'></i>
+            </button>
+            <button class="btn-icon">
+                <i class='bx bx-message-rounded'></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- ITEM 2 -->
+<div class="item-card">
+    <div class="item-img">
+        <img src="img/camarao.jpg" alt="Camarão">
+    </div>
+
+    <div class="item-info">
+        <h3>CAMARÃO</h3>
+        <span class="preco">R$ XXX</span>
+        <p>Camarão empanado servido com molho da casa.</p>
+
+        <div class="item-acoes">
+            <button class="btn-icon">
+                <i class='bx bxs-heart'></i>
+            </button>
+            <button class="btn-icon">
+                <i class='bx bx-message-rounded'></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- ITEM 3 -->
+<div class="item-card">
+    <div class="item-img">
+        <img src="img/peixe.jpg" alt="Isca de Peixe">
+    </div>
+
+    <div class="item-info">
+        <h3>ISCA DE PEIXE</h3>
+        <span class="preco">R$ XXX</span>
+        <p>Iscas de peixe douradas e crocantes.</p>
+
+        <div class="item-acoes">
+            <button class="btn-icon">
+                <i class='bx bxs-heart'></i>
+            </button>
+            <button class="btn-icon">
+                <i class='bx bx-message-rounded'></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+      /* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* FUNDO + OVERLAY */
+body.pagina-cardapio {
+    min-height: 100vh;
+    font-family: "Poppins", sans-serif;
+
+    background-image: url("/menu_cliente/img/tela_fundo_botoes.jpg");
+    background-size: 100%; /* 🔽 MENOS ZOOM (igual mockup) */
+    background-position: center 15%; /* 🔽 sol visível */
+    background-repeat: no-repeat;
+
+    background-color: #e6eef3;
+    position: relative;
+}
+
+/* Overlay escuro profissional */
+body.pagina-cardapio::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: -1;
+}
+
+/* TÍTULO */
+.titulo-pagina {
+    text-align: center;
+    color: #fff;
+    font-size: 26px;
+    margin: 20px 0 10px;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 6px black;
+}
+
+.titulo-pagina h2 {
+    text-align: center;
+    color: #fff;
+    font-size: 10px;
+    margin: 20px 0 10px;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 6px black;
+}
+
+/* CARD HORIZONTAL*/
+.item-card {
+    display: flex;
+    gap: 12px;
+    margin: 0 15px 25px;
+    align-items: stretch;
+}
+
+/* QUADRO IMAGENS */
+.item-img {
+    width: 140px;
+    min-width: 140px;
+    max-width: 150px;
+
+    border: 2px solid #000;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+
+    display: flex;
+}
+
+.item-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* QUADRADO DAS INFORMAÇÕES */
+.item-info {
+    flex: 1;
+    padding: 10px;
+
+    border: 2px solid #000;
+    border-radius: 12px;
+    background: transparent;
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* TEXTO */
+.item-info h3 {
+    font-size: 14px;
+    margin-bottom: 4px;
+    color: #000;
+}
+
+.preco {
+    font-weight: bold;
+    font-size: 13px;
+    color: #000;
+}
+
+.item-info p {
+    font-size: 11px;
+    margin: 6px 0;
+    color: #000;
+    line-height: 1.3;
+}
+
+/* AÇÕES */
+.item-acoes {
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    gap: 55px;
+}
+
+.btn-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    background: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.btn-icon .bxs-heart {
+    color: #e53935;
+}
+
+.btn-icon .bx-message-rounded {
+    color: #fbc02d;
+}
+    </style>
+</html>
