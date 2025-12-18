@@ -105,7 +105,7 @@ body.pagina-cardapio {
 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     
 }
 
@@ -140,8 +140,8 @@ body.pagina-cardapio::before {
 /* CARD HORIZONTAL*/
 .item-card {
     display: flex;
-    gap: 5px;
-    margin: 0 15px 25px;
+    gap: 8px;
+    margin: 8 15px;
     align-items: stretch;
 }
 
@@ -222,6 +222,20 @@ body.pagina-cardapio::before {
 
 .btn-icon .bx-message-rounded {
     color: #fbc02d;
+}
+
+/* 📱 Celular */
+@media (max-width: 600px) {
+    .item-card {
+        margin: 6px 12px;
+    }
+}
+
+/* 📱 Tablet */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .item-card {
+        margin: 10px 20px;
+    }
 }
     </style>
 </html>
