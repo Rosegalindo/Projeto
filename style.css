@@ -77,19 +77,19 @@ h2 {
 }
 
 .grupo1 {
-    margin-top: 45px;
+    margin-top: 95px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
     width: 100%;
     align-items: center;
 }
 
 .grupo2 {
-    margin-top: 45px;
+    margin-top: 35px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
     width: 100%;
     align-items: center;
 }
