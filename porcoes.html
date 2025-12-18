@@ -96,12 +96,15 @@ body.pagina-cardapio {
     font-family: "Poppins", sans-serif;
 
     background-image: url("img/tela_fundo_botoes.jpg");
-    background-size: 100%; /* 🔽 MENOS ZOOM (igual mockup) */
-    background-position: center 15%; /* 🔽 sol visível */
+    background-size:cover;
+    background-position: center;
     background-repeat: no-repeat;
-
     background-color: #e6eef3;
-    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
 }
 
 /* Overlay escuro profissional */
@@ -115,21 +118,21 @@ body.pagina-cardapio::before {
 
 /* TÍTULO */
 .titulo-pagina {
+    font-size: 32px;
+    font-weight: bold;
     text-align: center;
-    color: #fff;
-    font-size: 26px;
-    margin: 20px 0 10px;
     letter-spacing: 2px;
-    text-shadow: 2px 2px 6px black;
+    color: white;    
+    text-shadow: 2px 2px 5px black;
 }
 
 .titulo-pagina h2 {
+    font-size: 14px;
+    margin-top: 3px;
+    letter-spacing: 3px;
     text-align: center;
-    color: #fff;
-    font-size: 10px;
-    margin: 20px 0 10px;
-    letter-spacing: 2px;
-    text-shadow: 2px 2px 6px black;
+    color: white;
+    text-shadow: 1px 1px 4px black;
 }
 
 /* CARD HORIZONTAL*/
