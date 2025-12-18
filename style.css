@@ -3,13 +3,14 @@
 
 body {
     margin: 0;
-    padding: 0;
+    overflow: hidden;
     font-family: "Poppins", sans-serif;
     height: 100vh;
     background-image: url('img/imagemfundo.jpg');
-    background-size:cover;
-    background-position: center;
+    background-size:contain;
+    background-position: center top;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     display: flex;
     flex-direction: column;
 }
