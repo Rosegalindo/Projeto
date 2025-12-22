@@ -108,17 +108,17 @@
         </div>
     </div>
 
-<!-- PÁGINA 2 (CALABRESA/ISCA DE FRANGO/MINI PASTEIS/BATATA)-->   
+<!-- PÁGINA 2 (BATATA/ MINI PASTEIS/ CALABRESA/ISCA DE FRANGO)-->   
 <div class="pagina ativa">
 
 <!-- ITEM 1 -->
 <div class="item-card">
     <div class="item-img">
-        <img src="img/lula1.jpg" alt="Lula">
+        <img src="img/batata1.jpg" alt="batata">
     </div>
 
     <div class="item-info">
-        <h3>LULA</h3>
+        <h3>BATATA</h3>
         <span class="preco">R$ XXX</span>
         <p>Porção de lula crocante, acompanha limão e molho especial.</p>
 
@@ -136,11 +136,11 @@
 <!-- ITEM 2 -->
 <div class="item-card">
     <div class="item-img">
-        <img src="img/camarao.jpg" alt="Camarão">
+        <img src="img/minipasteis.jpg" alt="mini pasteis">
     </div>
 
     <div class="item-info">
-        <h3>CAMARÃO</h3>
+        <h3>MINI PASTEIS MISTO CARNE/QUEIJO</h3>
         <span class="preco">R$ XXX</span>
         <p>Camarão empanado servido com molho da casa.</p>
 
@@ -158,11 +158,11 @@
 <!-- ITEM 3 -->
 <div class="item-card">
     <div class="item-img">
-        <img src="img/peixe.jpg" alt="Isca de Peixe">
+        <img src="img/calabresa.jpg" alt="calabresa">
     </div>
 
     <div class="item-info">
-        <h3>ISCA DE PEIXE</h3>
+        <h3>CALABRESA</h3>
         <span class="preco">R$ XXX</span>
         <p>Iscas de peixe douradas e crocantes.</p>
 
@@ -179,11 +179,11 @@
     <!-- ITEM 4 -->
 <div class="item-card">
     <div class="item-img">
-        <img src="img/porquinho.jpg" alt="Porquinho">
+        <img src="img/iscadefrango.jpg" alt="Isca de Frango">
     </div>
 
     <div class="item-info">
-        <h3>PORQUINHO</h3>
+        <h3>ISCA DE FRANGO</h3>
         <span class="preco">R$ XXX</span>
         <p>Peixe marinho saboroso, com carne branca e macia.</p>
 
@@ -297,9 +297,42 @@
      <button id="next">❯</button>
 </div>
 
-</body>
+<script>
+    const paginas = document.querySelectorAll('.pagina');
+    const contador = document.getElementById('contador');
+    const prev = document.getElementById('prev');
+    const next = document.getElementById('next');
 
-<script></script>
+    let atual = 0;
+
+    function atualizar() {
+        paginas.forEach((p, i) => {
+            p.classList.toggle('ativa', i === atual);
+        });
+
+        contador.textContent = `${atual + 1} / ${paginas.length}`;
+        prev.disabled = atual === 0;
+        next.disabled = atual === paginas.length -1;
+    }
+
+    prev.addEventListener('click', () => {
+        if (atual > 0) {
+            atual--;
+            atualizar();
+        }
+    });
+
+    next.addEventListener('click', () => {
+        if (atual < paginas.length -1) {
+            atual++;
+            atualizar();
+        }
+    });
+
+    atualizar();
+
+</script>
+</body>
 <style>
     @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
