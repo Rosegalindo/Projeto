@@ -504,15 +504,24 @@ body.pagina-cardapio::before {
 
 /* 📱 Celular */
 @media (max-width: 600px) {
+    .pagina {
+        position: static;
+        display: none;
+    }
+
+    .pagina.ativa {
+        display: block;
+    }
+
+     .lista-itens {
+        padding-top: 20px;
+    }
+
     .paginacao {
         position: static;
         margin: 20px auto 30px;
     }
 
-    .lista-itens {
-        padding-bottom: 0;
-        overflow: visible;
-    }
 }
 
 /* 📱 Tablet */
