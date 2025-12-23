@@ -258,7 +258,7 @@
             </div>
         </div>
     </div>
-    
+
 </div>
 
 <!--PAGINAÇÃO-->
@@ -456,6 +456,7 @@ body.pagina-cardapio::before {
     position: relative;
     flex: 1;
     padding-top: 80px;
+    padding-bottom: 80px;
 }
 
 .pagina {
@@ -475,11 +476,17 @@ body.pagina-cardapio::before {
 }
 
 .paginacao {
+    position: fixed;
+    bottom: 15px;
+    left:0;
+    right: 0;
+
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 20px;
-    padding: 15px 0 20px;
+
+    z-index: 10;
 }
 
 .paginacao button {
@@ -509,6 +516,7 @@ body.pagina-cardapio::before {
 @media (min-width: 601px) and (max-width: 1024px) {
     .item-card {
         margin: 10px 20px;
+        bottom: 25px;
     }
 }
     </style>
