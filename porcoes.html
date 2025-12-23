@@ -476,6 +476,9 @@ body.pagina-cardapio::before {
 }
 
 .paginacao {
+
+    pointer-events: auto;
+
     position: fixed;
     bottom: 15px;
     left:0;
@@ -509,6 +512,14 @@ body.pagina-cardapio::before {
 @media (max-width: 600px) {
     .item-card {
         margin: 6px 12px;
+    }
+
+    .lista-itens {
+        padding-bottom: 130px;
+    }
+
+    .paginacao {
+        bottom: 20px;
     }
 }
 
