@@ -453,9 +453,6 @@ body.pagina-cardapio::before {
     position: relative;
     flex: 1;
     padding-top: 80px;
-    padding-bottom: 140px;
-
-    overflow-y: auto;
 }
 
 .pagina {
@@ -475,8 +472,6 @@ body.pagina-cardapio::before {
 }
 
 .paginacao {
-
-    pointer-events: auto;
 
     position: fixed;
     bottom: 20px;
@@ -509,9 +504,14 @@ body.pagina-cardapio::before {
 
 /* 📱 Celular */
 @media (max-width: 600px) {
+    .paginacao {
+        position: static;
+        margin: 20px auto 30px;
+    }
 
     .lista-itens {
-        padding-bottom: 160px;
+        padding-bottom: 0;
+        overflow: visible;
     }
 }
 
