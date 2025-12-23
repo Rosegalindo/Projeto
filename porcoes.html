@@ -316,9 +316,6 @@
 
 /* FUNDO + OVERLAY */
 body.pagina-cardapio {
-
-    overflow: hidden;
-
     min-height: 100vh;
     font-family: "Poppins", sans-serif;
 
@@ -456,7 +453,9 @@ body.pagina-cardapio::before {
     position: relative;
     flex: 1;
     padding-top: 80px;
-    padding-bottom: 80px;
+    padding-bottom: 140px;
+
+    overflow-y: auto;
 }
 
 .pagina {
@@ -480,7 +479,7 @@ body.pagina-cardapio::before {
     pointer-events: auto;
 
     position: fixed;
-    bottom: 15px;
+    bottom: 20px;
     left:0;
     right: 0;
 
@@ -510,13 +509,9 @@ body.pagina-cardapio::before {
 
 /* 📱 Celular */
 @media (max-width: 600px) {
-    
-    .lista-itens {
-        padding-bottom: 130px;
-    }
 
-    .paginacao {
-        bottom: 20px;
+    .lista-itens {
+        padding-bottom: 160px;
     }
 }
 
