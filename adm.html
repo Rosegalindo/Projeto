@@ -3,11 +3,220 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Porções</title>
+    <title>Login do Adm</title>
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-    
-    
-    
-    
-    
+
+    <style>
+     @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+     *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+     }
+
+     body {
+        font-family: "Poppins", sans-serif;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #111, #333);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+     }
+
+/* ==== LOGIN ==== */
+     .login-box, .adm-box {
+        background: rgba(0,0,0,0.6);
+        border-radius: 14px;
+        padding: 25px;
+        width: 100%;
+        max-width: 360px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+     }
+
+     .login-box h2, .adm-box h2 {
+        text-align: center;
+        margin-bottom: 20px;
+     }
+
+     .input-group {
+        margin-bottom: 15px;
+     }
+
+     textarea {
+        resize: none;
+        height: 70px;
+     }
+
+     button {
+        width: 100%;
+        padding: 12px;
+        border-radius: 10px;
+        border: none;
+        background: #ff7a00; /*cor do botão*/
+        color: #fff; /*cor da letra dentro do botão*/
+        font-size: 15px;
+        cursor:pointer;
+        transition: 0.3s;
+     }
+
+     button:hover {
+        background: #ff9a3c; /*Quando passa o mouse clarea o botão*/
+     }
+
+/* ==== ADM ==== */
+     .adm-box {
+        display: none;
+        max-width: 420px;
+     }
+
+     .preview {
+        width: 100%;
+        height: 160px;
+        background: #222;
+        border-radius: 10px;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+     }
+
+     .preview img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+     }
+
+/* ==== LISTA DE ITENS ==== */
+
+     .lista-itens {
+        margin-top: 20px;
+     }
+
+     .item {
+        background: rgba(255,255,255,0.08);
+        border-radius: 10px;
+        padding: 10px;
+        margin-bottom: 10px;
+     }
+
+     .item h4 {
+        font-size: 14px;
+     }
+
+     .item span {
+        font-size: 13px;
+        font-weight: bold;
+        color: #ffcc80; /*Passa o mouse mudar a cor do botão*/
+     }
+    </style>    
+    </head>
+
+    <body>
+<!-- ==== LOGIN ==== -->
+ <div class="login-box" id="loginBox">
+    <h2>Área Administrativa</h2>
+
+    <div class="input-group">
+        <label>Usuário</label>
+        <input type="text" id="usuario">
+    </div>
+
+    <div class="input">
+        <label>Senha</label>
+        <input type="password" id="senha">
+    </div>
+
+    <button onclick="login()">Entrar</button>
+ </div>
+
+ <!-- ==== ADM ==== -->
+  <div class="adm-box" id="admBox">
+    <h2>Cadastrar Item</h2>
+
+    <div class="preview" id="preview">
+        <span>Prévia da imagem</span>
+    </div>
+
+    <div class="input-group">
+        <label>Imagem do item</label>
+        <input type="text" id="nomeItem">
+    </div>
+
+    <div class="input-group">
+        <label>Preço</label>
+        <input type="text" id="precoItem" placeholder="R$ 00,00">
+    </div>
+
+    <div class="input-group">
+        <label>Descrição</label>
+        <textarea id="descricaoItem"></textarea>
+    </div>
+
+    <button onclick="adicionarItem()">Adicionar</button>
+
+    <div class="lista-itens" id="listaItens"></div>
+  </div>
+
+  <script>
+/* LOGIN SIMPLES */
+function login() {
+    const user = document.getElementById("usuario").value;
+    const pass = document.getElementById("senha").value;
+
+    if (user === "admin" && pass === "1234") {
+        document.getElementById("loginBox").style.display = "none";
+        document.getElementById("admBox").style.display = "block";
+    } else {
+        alert("Usuário ou senha inválidos");
+    }
+}
+
+/* PREVIEM DA IMAGEM */
+const inputImagem = document.getElementById("imagem");
+const preview = document.getElementById("preview");
+
+inputImagem.addEventListener("change", () => {
+    const file = inputImagem.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = () => {
+        preview.innerHTML = `<img src="${reader.result}">`;
+    };
+    reader.readAsDataURL(file);
+});
+
+/* ADICIONAR ITEM */
+function adicionarItem(){
+    const nome = document.getElementById("nomeItem").value;
+    const preco = document.getElementById("precoItem").value;
+    const desc = document.getElementById("descricaoItem").value;
+    const img = preview.querySelector("img")?.src;
+
+    if (!nome || !preco || !desc || !img) {
+        alert("Preencha todos os campos");
+        return;
+    }
+
+    const div = document.createElement("div");
+    div.className = "item";
+    div.innerHTML = `
+        <h4>${nome}</h4>
+        <span>${preco}</span>
+        <p>${desc}</p>
+    `;
+
+    document.getElementById("listaItens").appendChild(div);
+
+    // Limpar formulário
+document.getElementById("nomeItem").value = "";
+    document.getElementById("precoItem").value = "";
+    document.getElementById("descricaoItem").value = "";
+    preview.innerHTML = "<span>Prévia da imagem</span>";
+    inputImagem.value = "";
+}
+  </script>
+    </body>
     </html>
