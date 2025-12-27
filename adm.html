@@ -1,184 +1,217 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login do Adm</title>
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Administração</title>
 
-    <style>
-     @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 
-     *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-     }
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
-     body {
-        font-family: "Poppins", sans-serif;
-        min-height: 100vh;
-        background: linear-gradient(135deg, #111, #333);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: #fff;
-     }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
 
-/* ==== LOGIN ==== */
-     .login-box, .adm-box {
-        background: rgba(0,0,0,0.6);
-        border-radius: 14px;
-        padding: 25px;
-        width: 100%;
-        max-width: 360px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-     }
+body {
+    min-height: 100vh;
+    background: radial-gradient(circle at top right, #444, #000);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
 
-     .login-box h2, .adm-box h2 {
-        text-align: center;
-        margin-bottom: 20px;
-     }
+/* ===== CARD BASE ===== */
+.card {
+    width: 90%;
+    max-width: 420px;
+    padding: 30px;
+    border-radius: 18px;
+    background: rgba(0,0,0,0.65);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+}
 
-     .input-group {
-        margin-bottom: 15px;
-     }
+/* ===== LOGIN ===== */
+#loginBox h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
 
-     textarea {
-        resize: none;
-        height: 70px;
-     }
+.input-box {
+    position: relative;
+    margin-bottom: 18px;
+}
 
-     button {
-        width: 100%;
-        padding: 12px;
-        border-radius: 10px;
-        border: none;
-        background: #ff7a00; /*cor do botão*/
-        color: #fff; /*cor da letra dentro do botão*/
-        font-size: 15px;
-        cursor:pointer;
-        transition: 0.3s;
-     }
+.input-box input,
+.input-box textarea {
+    width: 100%;
+    padding: 14px 45px 14px 18px;
+    border-radius: 30px;
+    border: 1px solid rgba(255,255,255,0.3);
+    background: transparent;
+    color: #fff;
+    outline: none;
+}
 
-     button:hover {
-        background: #ff9a3c; /*Quando passa o mouse clarea o botão*/
-     }
+.input-box textarea {
+    resize: none;
+    border-radius: 15px;
+    padding: 12px;
+}
 
-/* ==== ADM ==== */
-     .adm-box {
-        display: none;
-        max-width: 420px;
-     }
+.input-box i {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
 
-     .preview {
-        width: 100%;
-        height: 160px;
-        background: #222;
-        border-radius: 10px;
-        margin-bottom: 15px;
-        display: flex;
-        align-items: center;
-        overflow: hidden;
-     }
+.options {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
 
-     .preview img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-     }
+.options a {
+    color: #fff;
+    text-decoration: none;
+}
 
-/* ==== LISTA DE ITENS ==== */
+button {
+    width: 100%;
+    padding: 14px;
+    border-radius: 30px;
+    border: none;
+    background: #fff;
+    color: #000;
+    font-weight: 600;
+    cursor: pointer;
+}
 
-     .lista-itens {
-        margin-top: 20px;
-     }
+/* ===== ADM ===== */
+#admBox {
+    display: none;
+}
 
-     .item {
-        background: rgba(255,255,255,0.08);
-        border-radius: 10px;
-        padding: 10px;
-        margin-bottom: 10px;
-     }
+.preview {
+    width: 100%;
+    height: 160px;
+    border-radius: 14px;
+    background: #222;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-size: 13px;
+}
 
-     .item h4 {
-        font-size: 14px;
-     }
+.preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
-     .item span {
-        font-size: 13px;
-        font-weight: bold;
-        color: #ffcc80; /*Passa o mouse mudar a cor do botão*/
-     }
-    </style>    
-    </head>
+.lista-itens {
+    margin-top: 20px;
+}
 
-    <body>
-<!-- ==== LOGIN ==== -->
- <div class="login-box" id="loginBox">
-    <h2>Área Administrativa</h2>
+.item {
+    background: rgba(255,255,255,0.08);
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
 
-    <div class="input-group">
-        <label>Usuário</label>
-        <input type="text" id="usuario">
+.item h4 {
+    font-size: 14px;
+}
+
+.item span {
+    color: #ffcc80;
+    font-weight: bold;
+    font-size: 13px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===== LOGIN ===== -->
+<div class="card" id="loginBox">
+    <h1>Login</h1>
+
+    <div class="input-box">
+        <input type="text" id="usuario" placeholder="Usuário">
+        <i class='bx bx-user'></i>
     </div>
 
-    <div class="input">
-        <label>Senha</label>
-        <input type="password" id="senha">
+    <div class="input-box">
+        <input type="password" id="senha" placeholder="Senha">
+        <i class='bx bx-lock'></i>
+    </div>
+
+    <div class="options">
+        <label><input type="checkbox"> Lembrar senha</label>
+        <a href="#">Esqueci senha</a>
     </div>
 
     <button onclick="login()">Entrar</button>
- </div>
+</div>
 
- <!-- ==== ADM ==== -->
-  <div class="adm-box" id="admBox">
+<!-- ===== PAINEL ADM ===== -->
+<div class="card" id="admBox">
     <h2>Cadastrar Item</h2>
 
-    <div class="preview" id="preview">
-        <span>Prévia da imagem</span>
+    <div class="preview" id="preview">Prévia da imagem</div>
+
+    <div class="input-box">
+        <input type="file" id="imagem" accept="image/*">
     </div>
 
-    <div class="input-group">
-        <label>Imagem do item</label>
-        <input type="text" id="nomeItem">
+    <div class="input-box">
+        <input type="text" id="nomeItem" placeholder="Nome do item">
     </div>
 
-    <div class="input-group">
-        <label>Preço</label>
-        <input type="text" id="precoItem" placeholder="R$ 00,00">
+    <div class="input-box">
+        <input type="text" id="precoItem" placeholder="Preço (R$)">
     </div>
 
-    <div class="input-group">
-        <label>Descrição</label>
-        <textarea id="descricaoItem"></textarea>
+    <div class="input-box">
+        <textarea id="descricaoItem" placeholder="Descrição do item"></textarea>
     </div>
 
-    <button onclick="adicionarItem()">Adicionar</button>
+    <button onclick="adicionarItem()">Adicionar Item</button>
 
     <div class="lista-itens" id="listaItens"></div>
-  </div>
+</div>
 
-  <script>
-/* LOGIN SIMPLES */
+<script>
+/* LOGIN */
 function login() {
-    const user = document.getElementById("usuario").value;
-    const pass = document.getElementById("senha").value;
+    const user = usuario.value;
+    const pass = senha.value;
 
     if (user === "admin" && pass === "1234") {
-        document.getElementById("loginBox").style.display = "none";
-        document.getElementById("admBox").style.display = "block";
+        loginBox.style.display = "none";
+        admBox.style.display = "block";
     } else {
         alert("Usuário ou senha inválidos");
     }
 }
 
-/* PREVIEM DA IMAGEM */
-const inputImagem = document.getElementById("imagem");
-const preview = document.getElementById("preview");
-
-inputImagem.addEventListener("change", () => {
-    const file = inputImagem.files[0];
+/* PREVIEW IMAGEM */
+imagem.addEventListener("change", () => {
+    const file = imagem.files[0];
     if (!file) return;
 
     const reader = new FileReader();
@@ -189,13 +222,8 @@ inputImagem.addEventListener("change", () => {
 });
 
 /* ADICIONAR ITEM */
-function adicionarItem(){
-    const nome = document.getElementById("nomeItem").value;
-    const preco = document.getElementById("precoItem").value;
-    const desc = document.getElementById("descricaoItem").value;
-    const img = preview.querySelector("img")?.src;
-
-    if (!nome || !preco || !desc || !img) {
+function adicionarItem() {
+    if (!nomeItem.value || !precoItem.value || !descricaoItem.value || !preview.querySelector("img")) {
         alert("Preencha todos os campos");
         return;
     }
@@ -203,20 +231,20 @@ function adicionarItem(){
     const div = document.createElement("div");
     div.className = "item";
     div.innerHTML = `
-        <h4>${nome}</h4>
-        <span>${preco}</span>
-        <p>${desc}</p>
+        <h4>${nomeItem.value}</h4>
+        <span>${precoItem.value}</span>
+        <p>${descricaoItem.value}</p>
     `;
 
-    document.getElementById("listaItens").appendChild(div);
+    listaItens.appendChild(div);
 
-    // Limpar formulário
-document.getElementById("nomeItem").value = "";
-    document.getElementById("precoItem").value = "";
-    document.getElementById("descricaoItem").value = "";
-    preview.innerHTML = "<span>Prévia da imagem</span>";
-    inputImagem.value = "";
+    nomeItem.value = "";
+    precoItem.value = "";
+    descricaoItem.value = "";
+    preview.innerHTML = "Prévia da imagem";
+    imagem.value = "";
 }
-  </script>
-    </body>
-    </html>
+</script>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recuperar Senha</title>
+
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #000, #1a1a1a);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    width: 90%;
+    max-width: 380px;
+    padding: 35px 25px;
+    border-radius: 18px;
+    background: #1c1c1c;
+    border: 1px solid #ff9800;
+    color: #fff;
+}
+
+.card h1 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.input-box {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 14px 45px 14px 15px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    background: #2a2a2a;
+    color: #fff;
+}
+
+.input-box i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+.btn {
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    background: #fff;
+    color: #000;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 18px;
+    font-size: 13px;
+}
+
+.footer a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>Recuperar Senha</h1>
+
+    <div class="input-box">
+        <input type="email" placeholder="Digite seu E-mail">
+        <i class='bx bx-envelope'></i>
+    </div>
+
+    <button class="btn">RECUPERAR</button>
+
+    <div class="footer">
+        <a href="adm_login.html">Voltar para o Login</a>
+    </div>
+</div>
+
+</body>
+</html>

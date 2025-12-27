@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Novo Cadastro</title>
+
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #000, #1a1a1a);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    width: 90%;
+    max-width: 380px;
+    padding: 35px 25px;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #fff;
+}
+
+.card h1 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.input-box {
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 14px 45px 14px 15px;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+}
+
+.input-box i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+.btn {
+    width: 100%;
+    padding: 14px;
+    border-radius: 30px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn-cadastrar {
+    background: #fff;
+    color: #000;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 18px;
+    font-size: 13px;
+}
+
+.footer a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>Novo Cadastro</h1>
+
+    <div class="input-box">
+        <input type="text" placeholder="Nome Completo">
+        <i class='bx bx-user'></i>
+    </div>
+
+    <div class="input-box">
+        <input type="tel" placeholder="Celular">
+        <i class='bx bx-phone'></i>
+    </div>
+
+    <div class="input-box">
+        <input type="email" placeholder="E-mail">
+        <i class='bx bx-envelope'></i>
+    </div>
+
+    <div class="input-box">
+        <input type="password" placeholder="Senha (mín 6 caracteres)">
+    </div>
+
+    <div class="input-box">
+        <input type="password" placeholder="Confirme a senha">
+    </div>
+
+    <button class="btn btn-cadastrar">CADASTRAR</button>
+
+    <div class="footer">
+        Já tem uma conta?
+        <a href="adm_login.html">Fazer Login</a>
+    </div>
+</div>
+
+</body>
+</html>
