@@ -8,241 +8,146 @@
 <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Poppins, sans-serif;
 }
 
-body {
-    min-height: 100vh;
+body{
+    min-height:100vh;
     background: radial-gradient(circle at top right, #444, #000);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
     color: #fff;
 }
 
-/* ===== CARD BASE ===== */
-.card {
-    width: 90%;
-    max-width: 420px;
-    padding: 30px;
-    border-radius: 18px;
-    background: rgba(0,0,0,0.65);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255,255,255,0.2);
+.box{
+    width:90%;
+    max-width:420px;
+    background:rgba(0,0,0,.65);
+    border-radius:18px;
+    padding:30px;
+    color:#fff;
     box-shadow: 0 20px 40px rgba(0,0,0,0.8);
 }
 
-/* ===== LOGIN ===== */
-#loginBox h1 {
-    text-align: center;
-    margin-bottom: 30px;
+h1,h2{
+    text-align:center;
+    margin-bottom:20px;
 }
 
-.input-box {
-    position: relative;
-    margin-bottom: 18px;
+.input{
+    position:relative;
+    margin-bottom:15px;
 }
 
-.input-box input,
-.input-box textarea {
-    width: 100%;
-    padding: 14px 45px 14px 18px;
-    border-radius: 30px;
-    border: 1px solid rgba(255,255,255,0.3);
-    background: transparent;
-    color: #fff;
-    outline: none;
+.input input{
+    width:100%;
+    padding:12px 40px 12px 15px;
+    border-radius:25px;
+    border:none;
+    outline:none;
 }
 
-.input-box textarea {
-    resize: none;
-    border-radius: 15px;
-    padding: 12px;
+.input i{
+    position:absolute;
+    right:15px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#555;
 }
 
-.input-box i {
-    position: absolute;
-    right: 16px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 20px;
+.options{
+    display:flex;
+    justify-content:space-between;
+    font-size:13px;
+    margin-bottom:15px;
 }
 
-.options {
-    display: flex;
-    justify-content: space-between;
-    font-size: 13px;
-    margin-bottom: 20px;
+.options a{
+    color:#fff;
+    text-decoration:none;
 }
 
-.options a {
-    color: #fff;
-    text-decoration: none;
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:25px;
+    background:#fff;
+    font-weight:bold;
+    cursor:pointer;
 }
 
-button {
-    width: 100%;
-    padding: 14px;
-    border-radius: 30px;
-    border: none;
-    background: #fff;
-    color: #000;
-    font-weight: 600;
-    cursor: pointer;
+.link{
+    text-align:center;
+    margin-top:15px;
 }
 
-/* ===== ADM ===== */
-#admBox {
-    display: none;
+.link a{
+    color:#fff;
+    text-decoration:none;
 }
 
-.preview {
-    width: 100%;
-    height: 160px;
-    border-radius: 14px;
-    background: #222;
-    margin-bottom: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    font-size: 13px;
-}
-
-.preview img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.lista-itens {
-    margin-top: 20px;
-}
-
-.item {
-    background: rgba(255,255,255,0.08);
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
-
-.item h4 {
-    font-size: 14px;
-}
-
-.item span {
-    color: #ffcc80;
-    font-weight: bold;
-    font-size: 13px;
-}
+/* ADM */
+#admBox{ display:none; }
 </style>
 </head>
 
 <body>
 
-<!-- ===== LOGIN ===== -->
-<div class="card" id="loginBox">
+<!-- LOGIN -->
+<div class="box" id="loginBox">
     <h1>Login</h1>
 
-    <div class="input-box">
-        <input type="text" id="usuario" placeholder="Usuário">
+    <div class="input">
+        <input type="email" id="usuario" placeholder="Usuário">
         <i class='bx bx-user'></i>
     </div>
 
-    <div class="input-box">
+    <div class="input">
         <input type="password" id="senha" placeholder="Senha">
         <i class='bx bx-lock'></i>
     </div>
 
     <div class="options">
         <label><input type="checkbox"> Lembrar senha</label>
-        <a href="#">Esqueci senha</a>
+        <a href="recuperar_senha.html">Esqueci Senha</a>
     </div>
 
     <button onclick="login()">Entrar</button>
+
+    <div class="link">
+        <p>Não tem uma conta? <a href="cadastrar_adm.html">Cadastre-se</a></p>
+    </div>
 </div>
 
-<!-- ===== PAINEL ADM ===== -->
-<div class="card" id="admBox">
-    <h2>Cadastrar Item</h2>
-
-    <div class="preview" id="preview">Prévia da imagem</div>
-
-    <div class="input-box">
-        <input type="file" id="imagem" accept="image/*">
-    </div>
-
-    <div class="input-box">
-        <input type="text" id="nomeItem" placeholder="Nome do item">
-    </div>
-
-    <div class="input-box">
-        <input type="text" id="precoItem" placeholder="Preço (R$)">
-    </div>
-
-    <div class="input-box">
-        <textarea id="descricaoItem" placeholder="Descrição do item"></textarea>
-    </div>
-
-    <button onclick="adicionarItem()">Adicionar Item</button>
-
-    <div class="lista-itens" id="listaItens"></div>
+<!-- PAINEL ADM -->
+<div class="box" id="admBox">
+    <h2>Painel Administrativo</h2>
+    <p style="text-align:center;">Login realizado com sucesso ✅</p>
 </div>
 
 <script>
-/* LOGIN */
-function login() {
+function login(){
     const user = usuario.value;
     const pass = senha.value;
 
-    if (user === "admin" && pass === "1234") {
+    const admins = JSON.parse(localStorage.getItem("admins")) || [];
+
+    const ok = admins.find(a => a.email === user && a.senha === pass);
+
+    if(ok){
         loginBox.style.display = "none";
         admBox.style.display = "block";
-    } else {
+    }else{
         alert("Usuário ou senha inválidos");
     }
-}
-
-/* PREVIEW IMAGEM */
-imagem.addEventListener("change", () => {
-    const file = imagem.files[0];
-    if (!file) return;
-
-    const reader = new FileReader();
-    reader.onload = () => {
-        preview.innerHTML = `<img src="${reader.result}">`;
-    };
-    reader.readAsDataURL(file);
-});
-
-/* ADICIONAR ITEM */
-function adicionarItem() {
-    if (!nomeItem.value || !precoItem.value || !descricaoItem.value || !preview.querySelector("img")) {
-        alert("Preencha todos os campos");
-        return;
-    }
-
-    const div = document.createElement("div");
-    div.className = "item";
-    div.innerHTML = `
-        <h4>${nomeItem.value}</h4>
-        <span>${precoItem.value}</span>
-        <p>${descricaoItem.value}</p>
-    `;
-
-    listaItens.appendChild(div);
-
-    nomeItem.value = "";
-    precoItem.value = "";
-    descricaoItem.value = "";
-    preview.innerHTML = "Prévia da imagem";
-    imagem.value = "";
 }
 </script>
 
