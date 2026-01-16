@@ -131,25 +131,41 @@ button{
 <div class="box" id="admBox">
     <h2>Painel Administrativo</h2>
     <p style="text-align:center;">Login realizado com sucesso ✅</p>
+
+    <form action="salvar_item.php" method="POST" enctype="multipart/form-data">
+
+        <div class="input">
+            <input type="text" name="nome" placeholder="Nome do item" required>
+        </div>
+
+        <div class="input">
+            <textarea name="descricao" placeholder="Descrição do item" required
+                style="width:100%; padding:12px 15px; border-radius:15px; border:none; resize:none;"></textarea>
+        </div>
+
+        <div class="input">
+            <input type="number" step="0.01" name="preco" placeholder="Preço (ex: 25.90)" required>
+        </div>
+
+        <div class="input">
+            <select name="categoria" required
+                style="width:100%; padding:12px 15px; border-radius:25px; border:none;">
+                <option value="">Selecione a categoria</option>
+                <option value="porcoes">Porções</option>
+                <option value="sucos">Sucos / Refrigerantes</option>
+                <option value="cervejas">Cervejas</option>
+                <option value="drinks">Drinks / Gin</option>
+            </select>
+        </div>
+
+        <div class="input">
+            <input type="file" name="imagem" accept="image/*" required>
+        </div>
+
+        <button type="submit">Salvar item</button>
+
+    </form>
 </div>
-
-<script>
-function login(){
-    const user = usuario.value;
-    const pass = senha.value;
-
-    const admins = JSON.parse(localStorage.getItem("admins")) || [];
-
-    const ok = admins.find(a => a.email === user && a.senha === pass);
-
-    if(ok){
-        loginBox.style.display = "none";
-        admBox.style.display = "block";
-    }else{
-        alert("Usuário ou senha inválidos");
-    }
-}
-</script>
 
 </body>
 </html>
