@@ -1,3 +1,10 @@
+<?php
+include "conexao.php";
+
+$sql = "SELECT * FROM itens WHERE categoria='porcoes'";
+$result = $conn->query($sql);
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -16,248 +23,32 @@
  
 <div class="lista-itens">
 
-<!--============ PÁGINA 1 (PEIXES) ====================-->   
-<div class="pagina ativa">
-
-<!-- ITEM 1 -->
-<div class="item-card">
-    <div class="item-img"><img src="img/lula1.jpg" alt="Lula"></div>
-
-    <div class="item-info">
-        <h3>LULA</h3>
-        <span class="preco">R$ XXX</span>
-        <p>Porção de lula crocante, acompanha limão e molho especial.</p>
-
-        <div class="item-acoes">
-            <button class="btn-icon"><i class='bx bxs-heart'></i></button>
-            <button class="btn-icon"><i class='bx bx-message-rounded'></i></button>
+<?php while($item = $result->fetch_assoc()): ?>
+    <div class="item-card">
+        <div class="item-img">
+            <img src="<?= $item['imagem'] ?>" alt="<?= $item['nome'] ?>">
         </div>
-    </div>
-</div>
 
-<!-- ITEM 2 -->
-<div class="item-card">
-    <div class="item-img"><img src="img/camarao.jpg" alt="Camarão"></div>
+        <div class="item-info">
+            <h3><?= $item['nome'] ?></h3>
 
-    <div class="item-info">
-        <h3>CAMARÃO</h3>
-        <span class="preco">R$ XXX</span>
-        <p>Camarão empanado servido com molho da casa.</p>
+            <span class="preco">
+                R$ <?= number_format($item['preco'], 2, ',', '.') ?>
+            </span>
 
-        <div class="item-acoes">
-            <button class="btn-icon"><i class='bx bxs-heart'></i></button>
-            <button class="btn-icon"><i class='bx bx-message-rounded'></i></button>
-        </div>
-    </div>
-</div>
+            <p><?= $item['descricao'] ?></p>
 
-<!-- ITEM 3 -->
-<div class="item-card">
-    <div class="item-img"><img src="img/peixe.jpg" alt="Isca de Peixe"></div>
-
-    <div class="item-info">
-        <h3>ISCA DE PEIXE</h3>
-        <span class="preco">R$ XXX</span>
-        <p>Iscas de peixe douradas e crocantes.</p>
-
-        <div class="item-acoes">
-            <button class="btn-icon"><i class='bx bxs-heart'></i></button>
-            <button class="btn-icon"><i class='bx bx-message-rounded'></i></button>
-        </div>
-    </div>
-</div>
-
-    <!-- ITEM 4 -->
-<div class="item-card">
-    <div class="item-img"><img src="img/porquinho.jpg" alt="Porquinho"></div>
-
-    <div class="item-info">
-        <h3>PORQUINHO</h3>
-        <span class="preco">R$ XXX</span>
-        <p>Peixe marinho saboroso, com carne branca e macia.</p>
-
-        <div class="item-acoes">
-            <button class="btn-icon"><i class='bx bxs-heart'></i></button>
-            <button class="btn-icon"><i class='bx bx-message-rounded'></i></button>
+            <div class="item-acoes">
+                <button class="btn-icon">
+                    <i class='bx bxs-heart'></i>
+                </button>
+                <button class="btn-icon">
+                    <i class='bx bx-message-rounded'></i>
+                </button>
             </div>
         </div>
     </div>
-</div>
-<!--=================== PÁGINA 2 ======================-->   
-<div class="pagina">
-
-<!-- ITEM 1 -->
-<div class="item-card">
-    <div class="item-img"><img src="img/batata1.jpg" alt="batata"></div>
-
-    <div class="item-info">
-        <h3>BATATA</h3>
-        <span class="preco">R$ XXX</span>
-        <p>Porção de lula crocante, acompanha limão e molho especial.</p>
-
-        <div class="item-acoes">
-            <button class="btn-icon"><i class='bx bxs-heart'></i></button>
-            <button class="btn-icon"><i class='bx bx-message-rounded'></i></button>
-            </div>
-        </div>
-    </div>
-
-<!-- ITEM 2 -->
-<div class="item-card">
-    <div class="item-img">
-        <img src="img/minipasteis.jpg" alt="mini pasteis">
-    </div>
-
-    <div class="item-info">
-        <h3>MINI PASTEIS MISTO CARNE/QUEIJO</h3>
-        <span class="preco">R$ XXX</span>
-        <p>Camarão empanado servido com molho da casa.</p>
-
-        <div class="item-acoes">
-            <button class="btn-icon">
-                <i class='bx bxs-heart'></i>
-            </button>
-            <button class="btn-icon">
-                <i class='bx bx-message-rounded'></i>
-            </button>
-        </div>
-    </div>
-</div>
-
-<!-- ITEM 3 -->
-<div class="item-card">
-    <div class="item-img">
-        <img src="img/calabresa.jpg" alt="calabresa">
-    </div>
-
-    <div class="item-info">
-        <h3>CALABRESA</h3>
-        <span class="preco">R$ XXX</span>
-        <p>Iscas de peixe douradas e crocantes.</p>
-
-        <div class="item-acoes">
-            <button class="btn-icon">
-                <i class='bx bxs-heart'></i>
-            </button>
-            <button class="btn-icon">
-                <i class='bx bx-message-rounded'></i>
-            </button>
-        </div>
-    </div>
-</div>
-    <!-- ITEM 4 -->
-<div class="item-card">
-    <div class="item-img">
-        <img src="img/iscadefrango.jpg" alt="Isca de Frango">
-    </div>
-
-    <div class="item-info">
-        <h3>ISCA DE FRANGO</h3>
-        <span class="preco">R$ XXX</span>
-        <p>Peixe marinho saboroso, com carne branca e macia.</p>
-
-        <div class="item-acoes">
-            <button class="btn-icon">
-                <i class='bx bxs-heart'></i>
-            </button>
-            <button class="btn-icon">
-                <i class='bx bx-message-rounded'></i>
-            </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-<!--=================== PÁGINA 3 ======================-->   
-<div class="pagina">
-
-<!-- ITEM 1 -->
-<div class="item-card">
-    <div class="item-img">
-        <img src="img/porcaolegumes.jpg" alt="Porção de Legumes">
-    </div>
-
-    <div class="item-info">
-        <h3>PORÇÃO DE LEGUMES</h3>
-        <span class="preco">R$ XXX</span>
-        <p>Porção de lula crocante, acompanha limão e molho especial.</p>
-
-        <div class="item-acoes">
-            <button class="btn-icon">
-                <i class='bx bxs-heart'></i>
-            </button>
-            <button class="btn-icon">
-                <i class='bx bx-message-rounded'></i>
-            </button>
-        </div>
-    </div>
-</div>
-
-<!-- ITEM 2 -->
-<div class="item-card">
-    <div class="item-img">
-        <img src="img/mandioca.jpg" alt="Mandioca">
-    </div>
-
-    <div class="item-info">
-        <h3>PORÇÃO DE MANDIOCA</h3>
-        <span class="preco">R$ XXX</span>
-        <p>Camarão empanado servido com molho da casa.</p>
-
-        <div class="item-acoes">
-            <button class="btn-icon">
-                <i class='bx bxs-heart'></i>
-            </button>
-            <button class="btn-icon">
-                <i class='bx bx-message-rounded'></i>
-            </button>
-        </div>
-    </div>
-</div>
-
-<!-- ITEM 3 -->
-<div class="item-card">
-    <div class="item-img">
-        <img src="img/polenta.jpg" alt="Polenta">
-    </div>
-
-    <div class="item-info">
-        <h3>POLENTA</h3>
-        <span class="preco">R$ XXX</span>
-        <p>Iscas de peixe douradas e crocantes.</p>
-
-        <div class="item-acoes">
-            <button class="btn-icon">
-                <i class='bx bxs-heart'></i>
-            </button>
-            <button class="btn-icon">
-                <i class='bx bx-message-rounded'></i>
-            </button>
-        </div>
-    </div>
-</div>
-    <!-- ITEM 4 -->
-<div class="item-card">
-    <div class="item-img">
-        <img src="img/milhoponteouespiga.jpg" alt="Milho no pote ou na Espiga">
-    </div>
-
-    <div class="item-info">
-        <h3>MILHO NO PORTE OU NA ESPIGA</h3>
-        <span class="preco">R$ XXX</span>
-        <p>Peixe marinho saboroso, com carne branca e macia.</p>
-
-        <div class="item-acoes">
-            <button class="btn-icon">
-                <i class='bx bxs-heart'></i>
-            </button>
-            <button class="btn-icon">
-                <i class='bx bx-message-rounded'></i>
-            </button>
-                </div>
-            </div>
-        </div>
-    </div>
+<?php endwhile; ?>
 
 </div>
 
