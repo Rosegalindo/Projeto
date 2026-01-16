@@ -52,48 +52,6 @@ $result = $conn->query($sql);
 
 </div>
 
-<!--PAGINAÇÃO-->
-<div class='paginacao'>
-    <button id="prev">❮</button>
-    <span id="contador">1 / 3</span>
-     <button id="next">❯</button>
-</div>
-
-<script>
-    const paginas = document.querySelectorAll('.pagina');
-    const contador = document.getElementById('contador');
-    const prev = document.getElementById('prev');
-    const next = document.getElementById('next');
-
-    let atual = 0;
-
-    function atualizar() {
-        paginas.forEach((p, i) => {
-            p.classList.toggle('ativa', i === atual);
-        });
-
-        contador.textContent = `${atual + 1} / ${paginas.length}`;
-        prev.disabled = atual === 0;
-        next.disabled = atual === paginas.length -1;
-    }
-
-    prev.addEventListener('click', () => {
-        if (atual > 0) {
-            atual--;
-            atualizar();
-        }
-    });
-
-    next.addEventListener('click', () => {
-        if (atual < paginas.length -1) {
-            atual++;
-            atualizar();
-        }
-    });
-
-    atualizar();
-
-</script>
 </body>
 <style>
     @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
@@ -246,72 +204,9 @@ body.pagina-cardapio::before {
     padding-top: 80px;
 }
 
-.pagina {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: none;
-}
-
-.pagina.ativa {
-    display: block;
-}
-
-.pagina .item-card:first-child {
-    margin-top: 0;
-}
-
-.paginacao {
-
-    position: fixed;
-    bottom: 20px;
-    left:0;
-    right: 0;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-
-    z-index: 10;
-}
-
-.paginacao button {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    border: none;
-    background: #222;
-    color: #fff;
-    cursor: pointer;
-}
-
-.paginacao span {
-    font-weight: bold;
-    color: #fff;
-}
-
 
 /* 📱 Celular */
 @media (max-width: 600px) {
-    .pagina {
-        position: static;
-        display: none;
-    }
-
-    .pagina.ativa {
-        display: block;
-    }
-
-     .lista-itens {
-        padding-top: 20px;
-    }
-
-    .paginacao {
-        position: static;
-        margin: 20px auto 30px;
-    }
 
 }
 
