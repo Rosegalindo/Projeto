@@ -38,6 +38,7 @@ $result = $conn->query($sql);
              </div>
             </div>
     <?php endwhile; ?>
+    
 </div>
 
 </body>
