@@ -1,8 +1,8 @@
 <?php
-$host = "localhost";
-$usuario = "root";
-$senha = ""; // deixe vazio se não tiver senha
-$banco = "quiosque";
+$host = "sql107.infinityfree.com";
+$usuario = "if0_4094339";
+$senha = "SUA_SENHA_DO_VPANEL"; // mesma senha do InfinityFree
+$banco = "if0_4094339_quiosque";
 
 $conn = new mysqli($host, $usuario, $senha, $banco);
 
