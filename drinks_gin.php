@@ -1,3 +1,10 @@
+<?php
+include "conexao.php";
+
+$sql = "SELECT * FROM itens WHERE categoria='drinks_gin'";
+$result = $conn->query($sql);
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -16,250 +23,23 @@
  
 <div class="lista-itens">
 
-<!--=====PÁGINA 1 (DRINKS) ========-->   
-<div class="pagina ativa">
-
-<!-- ITEM 1 -->
-<div class="item-card">
-    <div class="item-img"><img src="img/caipirinha.jpg" alt="Caipirinha"></div>
-
-    <div class="item-info">
-        <h3>CAIPIRINHA</h3>
-        <span class="preco">R$ XXX</span>
-        <p>xxxxxxx.</p>
-
-        <div class="item-acoes">
-            <button class="btn-icon"><i class='bx bxs-heart'></i></button>
-            <button class="btn-icon"><i class='bx bx-message-rounded'></i></button>
+    <?php while($item = $result->fetch_assoc()): ?>
+        <div class="item-card">
+        <div class="item-img">
+            <img src="<?= $item['imagem'] ?>" alt="<?= $item['nome'] ?>">
         </div>
-    </div>
-</div>
 
-<!-- ITEM 2 -->
-<div class="item-card">
-    <div class="item-img"><img src="img/caipiroska.jpg" alt="Caipiroska"></div>
-
-    <div class="item-info">
-        <h3>CAIPIROSKA</h3>
-        <span class="preco">R$ XXX</span>
-        <p>(SMINORFF/SAGATIBA)</p>
-
-        <div class="item-acoes">
-            <button class="btn-icon"><i class='bx bxs-heart'></i></button>
-            <button class="btn-icon"><i class='bx bx-message-rounded'></i></button>
-        </div>
-    </div>
-</div>
-
-<!-- ITEM 3 -->
-<div class="item-card">
-    <div class="item-img"><img src="img/saquerinha.jpg" alt="Saquerinha"></div>
-
-    <div class="item-info">
-        <h3>SAQUERINHA</h3>
-        <span class="preco">R$ XXX</span>
-        <p>xxxxxxxxx.</p>
-
-        <div class="item-acoes">
-            <button class="btn-icon"><i class='bx bxs-heart'></i></button>
-            <button class="btn-icon"><i class='bx bx-message-rounded'></i></button>
-        </div>
-    </div>
-</div>
-
-    <!-- ITEM 4 -->
-<div class="item-card">
-    <div class="item-img"><img src="img/batida.jpg" alt="BATIDA"></div>
-
-    <div class="item-info">
-        <h3>BATIDA (ABSOLUT)</h3>
-        <span class="preco">R$ XXX</span>
-        <p>xxxxxxxx.</p>
-
-        <div class="item-acoes">
-            <button class="btn-icon"><i class='bx bxs-heart'></i></button>
-            <button class="btn-icon"><i class='bx bx-message-rounded'></i></button>
+        <div class="item-info">
+            <h3><?= $item['nome'] ?></h3>
+            <span class="preco">
+                R$ <?= number_format($item['preco'], 2, ',', '.') ?>
+            </span>
+            <p><?= $item['descricao'] ?></p>
+             </div>
             </div>
-        </div>
-    </div>
-</div>
-<!--=================== PÁGINA 2 ======================-->   
-<div class="pagina">
-
-<!-- ITEM 1 -->
-<div class="item-card">
-    <div class="item-img"><img src="img/espanhola.jpg" alt="Espanhola"></div>
-
-    <div class="item-info">
-        <h3>ESPANHOLA</h3>
-        <span class="preco">R$ XXX</span>
-        <p>xxxx.</p>
-
-        <div class="item-acoes">
-            <button class="btn-icon"><i class='bx bxs-heart'></i></button>
-            <button class="btn-icon"><i class='bx bx-message-rounded'></i></button>
-            </div>
-        </div>
-    </div>
-
-<!-- ITEM 2 -->
-<div class="item-card">
-    <div class="item-img">
-        <img src="img/Pinacolada.jpg" alt="Pinacolada">
-    </div>
-
-    <div class="item-info">
-        <h3>PINACOLADA</h3>
-        <span class="preco">R$ XXX</span>
-        <p>xxxxxxxxxxxxxxxxxx.</p>
-
-        <div class="item-acoes">
-            <button class="btn-icon">
-                <i class='bx bxs-heart'></i>
-            </button>
-            <button class="btn-icon">
-                <i class='bx bx-message-rounded'></i>
-            </button>
-        </div>
-    </div>
+    <?php endwhile; ?>
 </div>
 
-<!-- ITEM 3 -->
-<div class="item-card">
-    <div class="item-img">
-        <img src="img/sexonthebeach.jpg" alt="Sexonthebeach">
-    </div>
-
-    <div class="item-info">
-        <h3>SEX ON THE BEACH</h3>
-        <span class="preco">R$ XXX</span>
-        <p>xxxxxxxxx.</p>
-
-        <div class="item-acoes">
-            <button class="btn-icon">
-                <i class='bx bxs-heart'></i>
-            </button>
-            <button class="btn-icon">
-                <i class='bx bx-message-rounded'></i>
-            </button>
-            </div>
-        </div>
-    </div>
-</div>
-<!--============= PÁGINA 3 (GIN)=================-->   
-<div class="pagina">
-
-<!-- ITEM 1 -->
-<div class="item-card">
-    <div class="item-img">
-        <img src="img/gintropical.jpg" alt="Gin tropical">
-    </div>
-
-    <div class="item-info">
-        <h3>GIN TROPICAL/FRUTAS VERMELHAS</h3>
-        <span class="preco">R$ XXX</span>
-        <p>xxxxxxxxx.</p>
-
-        <div class="item-acoes">
-            <button class="btn-icon">
-                <i class='bx bxs-heart'></i>
-            </button>
-            <button class="btn-icon">
-                <i class='bx bx-message-rounded'></i>
-            </button>
-        </div>
-    </div>
-</div>
-
-<!-- ITEM 2 -->
-<div class="item-card">
-    <div class="item-img">
-        <img src="img/gintunqueray.jpg" alt="Gin Tunqueray">
-    </div>
-
-    <div class="item-info">
-        <h3>GIN TUNQUERAY</h3>
-        <span class="preco">R$ XXX</span>
-        <p>xxxxxxxxx.</p>
-
-        <div class="item-acoes">
-            <button class="btn-icon">
-                <i class='bx bxs-heart'></i>
-            </button>
-            <button class="btn-icon">
-                <i class='bx bx-message-rounded'></i>
-            </button>
-        </div>
-    </div>
-</div>
-
-<!-- ITEM 3 -->
-<div class="item-card">
-    <div class="item-img">
-        <img src="img/gintradicional.jpg" alt="Gin Tradicional">
-    </div>
-
-    <div class="item-info">
-        <h3>GIN TRADICIONAL C/ ESPECIARIAS</h3>
-        <span class="preco">R$ XXX</span>
-        <p>xxxxxxxx.</p>
-
-        <div class="item-acoes">
-            <button class="btn-icon">
-                <i class='bx bxs-heart'></i>
-            </button>
-            <button class="btn-icon">
-                <i class='bx bx-message-rounded'></i>
-            </button>
-            </div>
-        </div>
-    </div>
-</div>
-
-</div>
-
-<!--PAGINAÇÃO-->
-<div class='paginacao'>
-    <button id="prev">❮</button>
-    <span id="contador">1 / 3</span>
-     <button id="next">❯</button>
-</div>
-
-<script>
-    const paginas = document.querySelectorAll('.pagina');
-    const contador = document.getElementById('contador');
-    const prev = document.getElementById('prev');
-    const next = document.getElementById('next');
-
-    let atual = 0;
-
-    function atualizar() {
-        paginas.forEach((p, i) => {
-            p.classList.toggle('ativa', i === atual);
-        });
-
-        contador.textContent = `${atual + 1} / ${paginas.length}`;
-        prev.disabled = atual === 0;
-        next.disabled = atual === paginas.length -1;
-    }
-
-    prev.addEventListener('click', () => {
-        if (atual > 0) {
-            atual--;
-            atualizar();
-        }
-    });
-
-    next.addEventListener('click', () => {
-        if (atual < paginas.length -1) {
-            atual++;
-            atualizar();
-        }
-    });
-
-    atualizar();
-
-</script>
 </body>
 
 <style>
@@ -413,73 +193,8 @@ body.pagina-cardapio::before {
     padding-top: 80px;
 }
 
-.pagina {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: none;
-}
-
-.pagina.ativa {
-    display: block;
-}
-
-.pagina .item-card:first-child {
-    margin-top: 0;
-}
-
-.paginacao {
-
-    position: fixed;
-    bottom: 20px;
-    left:0;
-    right: 0;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-
-    z-index: 10;
-}
-
-.paginacao button {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    border: none;
-    background: #222;
-    color: #fff;
-    cursor: pointer;
-}
-
-.paginacao span {
-    font-weight: bold;
-    color: #fff;
-}
-
-
 /* 📱 Celular */
 @media (max-width: 600px) {
-    .pagina {
-        position: static;
-        display: none;
-    }
-
-    .pagina.ativa {
-        display: block;
-    }
-
-     .lista-itens {
-        padding-top: 20px;
-    }
-
-    .paginacao {
-        position: static;
-        margin: 20px auto 30px;
-    }
-
 }
 
 /* 📱 Tablet */

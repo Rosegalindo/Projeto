@@ -1,9 +1,16 @@
+<?php
+include "conexao.php";
+
+$sql = "SELECT * FROM itens WHERE categoria='suco_refrigerante'";
+$result = $conn->query($sql);
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Porções</title>
+    <title>Sucos e Refrigerantes</title>
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 
 </head>
@@ -14,181 +21,26 @@
         <h2>SUCOS & REFRIGERANTES</h2>
     </div>
  
-<div class="lista-itens">
+    <div class="lista-itens">
 
-<!--============ PÁGINA 1 (SUCOS) ====================-->   
-<div class="pagina ativa">
-
-<!-- ITEM 1 -->
-<div class="item-card">
-    <div class="item-img"><img src="img/suconatural.jpg" alt="Suco natural"></div>
-
-    <div class="item-info">
-        <h3>SUCOS NATURAIS</h3>
-        <span class="preco">R$ XXX</span>
-        <p>xxxxxx.</p>
-
-        <div class="item-acoes">
-            <button class="btn-icon"><i class='bx bxs-heart'></i></button>
-            <button class="btn-icon"><i class='bx bx-message-rounded'></i></button>
+        <?php while($item = $result->fetch_assoc()): ?>
+        <div class="item-card">
+        <div class="item-img">
+            <img src="<?= $item['imagem'] ?>" alt="<?= $item['nome'] ?>">
         </div>
-    </div>
-</div>
 
-<!-- ITEM 2 -->
-<div class="item-card">
-    <div class="item-img"><img src="img/sucodeacai.jpg" alt="Suco de Açaí"></div>
-
-    <div class="item-info">
-        <h3>SUCO DE AÇAÍ</h3>
-        <span class="preco">R$ XXX</span>
-        <p>xxxx.</p>
-
-        <div class="item-acoes">
-            <button class="btn-icon"><i class='bx bxs-heart'></i></button>
-            <button class="btn-icon"><i class='bx bx-message-rounded'></i></button>
-        </div>
-    </div>
-</div>
-
-<!-- ITEM 3 -->
-<div class="item-card">
-    <div class="item-img"><img src="img/refrigerantes.jpg" alt="Refrigerantes"></div>
-
-    <div class="item-info">
-        <h3>REFRIGERANTES</h3>
-        <span class="preco">R$ XXX</span>
-        <p>xxxxxxx.</p>
-
-        <div class="item-acoes">
-            <button class="btn-icon"><i class='bx bxs-heart'></i></button>
-            <button class="btn-icon"><i class='bx bx-message-rounded'></i></button>
-        </div>
-    </div>
-</div>
-
-    <!-- ITEM 4 -->
-<div class="item-card">
-    <div class="item-img"><img src="img/Águacomgás.jpg" alt="Água com gás"></div>
-
-    <div class="item-info">
-        <h3>ÁGUA COM GÁS</h3>
-        <span class="preco">R$ XXX</span>
-        <p>xxxxxxxx.</p>
-
-        <div class="item-acoes">
-            <button class="btn-icon"><i class='bx bxs-heart'></i></button>
-            <button class="btn-icon"><i class='bx bx-message-rounded'></i></button>
+        <div class="item-info">
+            <h3><?= $item['nome'] ?></h3>
+            <span class="preco">
+                R$ <?= number_format($item['preco'], 2, ',', '.') ?>
+            </span>
+            <p><?= $item['descricao'] ?></p>
+             </div>
             </div>
-        </div>
-    </div>
-</div>
-<!--=================== PÁGINA 2 ======================-->   
-<div class="pagina">
+        <?php endwhile; ?>
 
-<!-- ITEM 1 -->
-<div class="item-card">
-    <div class="item-img"><img src="img/aguamineral.jpg" alt="Água Mineral"></div>
-
-    <div class="item-info">
-        <h3>ÁGUA MINERAL</h3>
-        <span class="preco">R$ XXX</span>
-        <p>xxxxx.</p>
-
-        <div class="item-acoes">
-            <button class="btn-icon"><i class='bx bxs-heart'></i></button>
-            <button class="btn-icon"><i class='bx bx-message-rounded'></i></button>
-            </div>
-        </div>
-    </div>
-
-<!-- ITEM 2 -->
-<div class="item-card">
-    <div class="item-img">
-        <img src="img/coco.jpg" alt="Coco">
-    </div>
-
-    <div class="item-info">
-        <h3>COCO</h3>
-        <span class="preco">R$ XXX</span>
-        <p>xxxxxxx.</p>
-
-        <div class="item-acoes">
-            <button class="btn-icon">
-                <i class='bx bxs-heart'></i>
-            </button>
-            <button class="btn-icon">
-                <i class='bx bx-message-rounded'></i>
-            </button>
-        </div>
-    </div>
 </div>
 
-<!-- ITEM 3 -->
-<div class="item-card">
-    <div class="item-img">
-        <img src="img/açaí.jpg" alt="Açaí">
-    </div>
-
-    <div class="item-info">
-        <h3>AÇAÍ</h3>
-        <span class="preco">R$ XXX</span>
-        <p>xxxxxxxxxx.</p>
-
-        <div class="item-acoes">
-            <button class="btn-icon">
-                <i class='bx bxs-heart'></i>
-            </button>
-            <button class="btn-icon">
-                <i class='bx bx-message-rounded'></i>
-            </button>
-            </div>
-        </div>
-    </div>   
-</div>
-
-    <!--PAGINAÇÃO-->
-<div class='paginacao'>
-    <button id="prev">❮</button>
-    <span id="contador">1 / 2</span>
-     <button id="next">❯</button>
-</div>
-
-<script>
-    const paginas = document.querySelectorAll('.pagina');
-    const contador = document.getElementById('contador');
-    const prev = document.getElementById('prev');
-    const next = document.getElementById('next');
-
-    let atual = 0;
-
-    function atualizar() {
-        paginas.forEach((p, i) => {
-            p.classList.toggle('ativa', i === atual);
-        });
-
-        contador.textContent = `${atual + 1} / ${paginas.length}`;
-        prev.disabled = atual === 0;
-        next.disabled = atual === paginas.length -1;
-    }
-
-    prev.addEventListener('click', () => {
-        if (atual > 0) {
-            atual--;
-            atualizar();
-        }
-    });
-
-    next.addEventListener('click', () => {
-        if (atual < paginas.length -1) {
-            atual++;
-            atualizar();
-        }
-    });
-
-    atualizar();
-
-</script>
 </body>
 
 <style>
@@ -342,72 +194,8 @@ body.pagina-cardapio::before {
     padding-top: 80px;
 }
 
-.pagina {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: none;
-}
-
-.pagina.ativa {
-    display: block;
-}
-
-.pagina .item-card:first-child {
-    margin-top: 0;
-}
-
-.paginacao {
-
-    position: fixed;
-    bottom: 20px;
-    left:0;
-    right: 0;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-
-    z-index: 10;
-}
-
-.paginacao button {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    border: none;
-    background: #222;
-    color: #fff;
-    cursor: pointer;
-}
-
-.paginacao span {
-    font-weight: bold;
-    color: #fff;
-}
-
-
 /* 📱 Celular */
 @media (max-width: 600px) {
-    .pagina {
-        position: static;
-        display: none;
-    }
-
-    .pagina.ativa {
-        display: block;
-    }
-
-     .lista-itens {
-        padding-top: 20px;
-    }
-
-    .paginacao {
-        position: static;
-        margin: 20px auto 30px;
-    }
 
 }
 
