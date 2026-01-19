@@ -1,2 +1,3 @@
+<?php
 include "cenexao.php";
-echo "Conectado com sucesso";
+echo "Conectado com sucesso!";
