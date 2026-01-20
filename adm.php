@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Administração</title>
+<title>Painel Administrativo</title>
 
 <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 
@@ -36,42 +36,27 @@ body{
     box-shadow: 0 20px 40px rgba(0,0,0,0.8);
 }
 
-h1,h2{
+h2{
     text-align:center;
     margin-bottom:20px;
 }
 
 .input{
-    position:relative;
     margin-bottom:15px;
 }
 
-.input input{
+.input input,
+.input textarea,
+.input select{
     width:100%;
-    padding:12px 40px 12px 15px;
-    border-radius:25px;
+    padding:12px 15px;
+    border-radius:15px;
     border:none;
     outline:none;
 }
 
-.input i{
-    position:absolute;
-    right:15px;
-    top:50%;
-    transform:translateY(-50%);
-    color:#555;
-}
-
-.options{
-    display:flex;
-    justify-content:space-between;
-    font-size:13px;
-    margin-bottom:15px;
-}
-
-.options a{
-    color:#fff;
-    text-decoration:none;
+textarea{
+    resize:none;
 }
 
 button{
@@ -83,54 +68,13 @@ button{
     font-weight:bold;
     cursor:pointer;
 }
-
-.link{
-    text-align:center;
-    margin-top:15px;
-}
-
-.link a{
-    color:#fff;
-    text-decoration:none;
-}
-
-/* ADM */
-#admBox{ display:none; }
 </style>
 </head>
 
 <body>
 
-<!-- LOGIN -->
-<div class="box" id="loginBox">
-    <h1>Login</h1>
-
-    <div class="input">
-        <input type="email" id="usuario" placeholder="Usuário">
-        <i class='bx bx-user'></i>
-    </div>
-
-    <div class="input">
-        <input type="password" id="senha" placeholder="Senha">
-        <i class='bx bx-lock'></i>
-    </div>
-
-    <div class="options">
-        <label><input type="checkbox"> Lembrar senha</label>
-        <a href="recuperar_senha.html">Esqueci Senha</a>
-    </div>
-
-    <button onclick="login()">Entrar</button>
-
-    <div class="link">
-        <p>Não tem uma conta? <a href="cadastrar_adm.html">Cadastre-se</a></p>
-    </div>
-</div>
-
-<!-- PAINEL ADM -->
-<div class="box" id="admBox">
+<div class="box">
     <h2>Painel Administrativo</h2>
-    <p style="text-align:center;">Login realizado com sucesso ✅</p>
 
     <form action="salvar_item.php" method="POST" enctype="multipart/form-data">
 
@@ -139,8 +83,7 @@ button{
         </div>
 
         <div class="input">
-            <textarea name="descricao" placeholder="Descrição do item" required
-                style="width:100%; padding:12px 15px; border-radius:15px; border:none; resize:none;"></textarea>
+            <textarea name="descricao" placeholder="Descrição do item" required></textarea>
         </div>
 
         <div class="input">
@@ -148,13 +91,12 @@ button{
         </div>
 
         <div class="input">
-            <select name="categoria" required
-                style="width:100%; padding:12px 15px; border-radius:25px; border:none;">
+            <select name="categoria" required>
                 <option value="">Selecione a categoria</option>
                 <option value="porcoes">Porções</option>
-                <option value="sucos">Sucos / Refrigerantes</option>
-                <option value="cervejas">Cervejas</option>
-                <option value="drinks">Drinks / Gin</option>
+                <option value="suco_refrigerante">Sucos / Refrigerantes</option>
+                <option value="cerveja">Cervejas</option>
+                <option value="drinks_gin">Drinks / Gin</option>
             </select>
         </div>
 
