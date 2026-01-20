@@ -1,16 +1,7 @@
-<?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
-include "conexao.php";
+<?php 
+include "conexao.php"
 
-$sql = "SELECT * FROM itens WHERE categoria='porcoes'";
-$result = $conn->query($sql);
-
-if (!$result) {
-    die("Erro na consulta SQL: " . $conn->error);
-}
 ?>
 
 <!DOCTYPE html>
@@ -76,7 +67,7 @@ body.pagina-cardapio {
     min-height: 100vh;
     font-family: "Poppins", sans-serif;
 
-    background-image: url("uploads/img/tela_fundo_botoes.jpg");
+    background-image: url("img/tela_fundo_botoes.jpg");
     background-size:cover;
     background-position: center;
     background-repeat: no-repeat;
