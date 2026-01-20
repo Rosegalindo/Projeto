@@ -16,7 +16,7 @@
     font-family: "Poppins", sans-serif;
 
     
-    background-image: url('img/imagemfundo.jpg');
+    background-image: url('uploads/img/imagemfundo.jpg');
     background-size:cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -29,7 +29,7 @@
 .fundo {
     position: fixed;
     inset: 0;
-    background-image: url("img/imagemfundo.jpg");
+    background-image: url('uploads/img/imagemfundo.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

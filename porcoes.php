@@ -76,7 +76,7 @@ body.pagina-cardapio {
     min-height: 100vh;
     font-family: "Poppins", sans-serif;
 
-    background-image: url("img/tela_fundo_botoes.jpg");
+    background-image: url("uploads/img/tela_fundo_botoes.jpg");
     background-size:cover;
     background-position: center;
     background-repeat: no-repeat;
