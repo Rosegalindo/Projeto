@@ -1,8 +1,7 @@
 <?php
-
 $host = "sql107.infinityfree.com";
 $usuario = "if0_4094339";
-$senha = "S5yftY0mNJGljaM"; // mesma senha do InfinityFree
+$senha = "Progresso41"; // a nova senha
 $banco = "if0_4094339_quiosque";
 
 $conn = new mysqli($host, $usuario, $senha, $banco);
