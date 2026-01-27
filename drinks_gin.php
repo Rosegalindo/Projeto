@@ -1,7 +1,11 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 include __DIR__ . "/ADM/conexao.php";
 
-$sql = "SELECT * FROM itens WHERE categoria = 'drinks_gin'";
+$sql = "SELECT * FROM itens WHERE categoria = 'drinks'";
 $result = $conn->query($sql);
 ?>
 

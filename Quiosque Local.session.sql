@@ -21,9 +21,9 @@ CREATE TABLE itens (
     imagem VARCHAR(255),
     categoria ENUM(
         'porcoes',
-        'suco_refrigerante',
+        'sucos',
         'cerveja',
-        'drinks_gin'
+        'drinks'
     ),
     criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
