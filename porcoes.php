@@ -1,8 +1,11 @@
 
-<?php 
-include "conexao.php"
+<?php
+include __DIR__ . "/ADM/conexao.php";
 
+$sql = "SELECT * FROM itens WHERE categoria = 'porcoes'";
+$result = $conn->query($sql);
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -22,7 +25,7 @@ include "conexao.php"
  
 <div class="lista-itens">
 
-<?php while($item = $result->fetch_assoc()): ?>
+<?php while ($item = $result->fetch_assoc()): ?>
     <div class="item-card">
         <div class="item-img">
             <img src="<?= $item['imagem'] ?>" alt="<?= $item['nome'] ?>">
@@ -36,15 +39,6 @@ include "conexao.php"
             </span>
 
             <p><?= $item['descricao'] ?></p>
-
-            <div class="item-acoes">
-                <button class="btn-icon">
-                    <i class='bx bxs-heart'></i>
-                </button>
-                <button class="btn-icon">
-                    <i class='bx bx-message-rounded'></i>
-                </button>
-            </div>
         </div>
     </div>
 <?php endwhile; ?>

@@ -1,16 +1,8 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+include __DIR__ . "/ADM/conexao.php";
 
-include "conexao.php";
-
-$sql = "SELECT * FROM itens WHERE categoria='cerveja'";
+$sql = "SELECT * FROM itens WHERE categoria = 'cerveja'";
 $result = $conn->query($sql);
-
-if (!$result) {
-    die("Erro na consulta SQL: " . $conn->error);
-}
 ?>
 
 <!DOCTYPE html>
@@ -31,21 +23,24 @@ if (!$result) {
  
 <div class="lista-itens">
 
-<?php while($item = $result->fetch_assoc()): ?>
-        <div class="item-card">
+<?php while ($item = $result->fetch_assoc()): ?>
+    <div class="item-card">
         <div class="item-img">
             <img src="<?= $item['imagem'] ?>" alt="<?= $item['nome'] ?>">
         </div>
 
         <div class="item-info">
             <h3><?= $item['nome'] ?></h3>
+
             <span class="preco">
                 R$ <?= number_format($item['preco'], 2, ',', '.') ?>
             </span>
+
             <p><?= $item['descricao'] ?></p>
-             </div>
-            </div>
-        <?php endwhile; ?>
+        </div>
+    </div>
+<?php endwhile; ?>
+
 </div>
 
 </body>
